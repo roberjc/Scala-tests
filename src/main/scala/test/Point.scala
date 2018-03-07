@@ -1,7 +1,7 @@
 package test
 
 // No hace falta declarar el si es var o val los parametros
-class Point(val xc: Int, val yc: Int){
+class Point(val xc: Int, val yc: Int) extends EqualTrait {
   
   // Solo se pueden reasignar variables mutables
   // Si se hacen privadas las variables, no se pueden heredar
@@ -32,4 +32,30 @@ class Point(val xc: Int, val yc: Int){
     println("Coordenadas: "+ (coordX, coordY))
   }
   
+  //Se establece que el objeto sin tipo sea del tipo Point y
+  //como instancia de ese tipo, se establecen las propiedades de
+  //la función isEqual
+  def isEqual(obj: Any ) = {
+    obj.isInstanceOf[Point] &&
+    obj.asInstanceOf[Point].getCoordX() == getCoordX() &&
+    obj.asInstanceOf[Point].getCoordY() == getCoordY()
+
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
